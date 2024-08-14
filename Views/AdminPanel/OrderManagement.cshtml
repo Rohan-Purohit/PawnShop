@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PawnShop.Models.Order>
+
+@{
+    ViewData["Title"] = "Order Management";
+}
+
+<h2>Order Management</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Order Date</th>
+            <th>Status</th>
+            <th>Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.UserId</td>
+                <td>@order.OrderDate?.ToString("d")</td>
+                <td>@order.OrderStatus</td>
+                <td>@order.TotalAmount.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PawnShop.Models.Coupon>
+
+@{
+    ViewData["Title"] = "Promotions Management";
+}
+
+<h2>Promotions Management</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Coupon Code</th>
+            <th>Description</th>
+            <th>Discount</th>
+            <th>Expiry Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var coupon in Model)
+        {
+            <tr>
+                <td>@coupon.Code</td>
+                <td>@coupon.UsageLimit</td>
+                <td>@coupon.DiscountPercentage.ToString("P")</td>
+                <td>@coupon.EndDate.ToString("d")</td>
+            </tr>
+        }
+    </tbody>
+</table>

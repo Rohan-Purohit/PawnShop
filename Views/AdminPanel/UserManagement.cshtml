@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PawnShop.Models.User>
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<h2>User Management</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Role</th>
+            <th>Date Joined</th>
+            <th>Last Login</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+                <td>@user.Address</td>
+                <td>@user.Role</td>
+                <td>@user.DateJoined?.ToString("d")</td>
+                <td>@(user.LastLogin.HasValue ? user.LastLogin.Value.ToString("d") : "N/A")</td>
+            </tr>
+        }
+    </tbody>
+</table>
